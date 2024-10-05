@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="assets/El-Hanan trans.png">
+    <title>Elhanan Company Limited</title>
+    <style>
+        .slide-in {
+            display: inline-block;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: slide-in 0.5s forwards;
+        }
+
+        @keyframes slide-in {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        nav {
+            transform: translateY(-100%);
+            /* Start hidden above the viewport */
+        }
+
+        nav.show {
+            transform: translateY(0);
+            /* Show navbar */
+        }
+
+        .navbar-green {
+            background-color: #38a169;
+            /* Green color */
+            transition: background-color 0.3s;
+            /* Transition effect for background color */
+        }
+
+        .navbar-white {
+            background-color: white;
+            /* White color */
+            transition: background-color 0.3s;
+            /* Transition effect for background color */
+        }
+
+        #welcome-text span {
+            margin-right: 0.4rem;
+            color: #ffffff;
+        }
+
+        .about-icon {
+            width: 50px;
+            height: 50px;
+        }
+
+        .about-item {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .about-item h3 {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-top: 1rem;
+            color: #006400;
+        }
+
+        .about-item p {
+            color: #4A5568;
+        }
+
+        /* Overlay styles */
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            /* Black with 50% opacity */
+            z-index: 1;
+            /* Place it above the images but below the text */
+        }
+
+        #slideshow img {
+            transition: opacity 1s ease-in-out;
+            /* Smooth transition for opacity */
+        }
+
+        .opacity-0 {
+            opacity: 0;
+        }
+
+        .opacity-100 {
+            opacity: 1;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"] {
+            color: black;
+            /* Change the text color to black */
+        }
+
+        .navbar-white a {
+            color: #38a169;
+            /* Change the link text color to green */
+        }
+
+        .navbar-white h1,
+        .navbar-white h2,
+        .navbar-white p {
+            color: #38a169;
+            /* Change the color of other text elements as needed */
+        }
+
+        .slideshow {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .slideshow img {
+            position: absolute;
+            width: 100%;
+            height: auto;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .slideshow img.active {
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100">
+
+    <!-- Navigation Bar -->
+    <!-- Navigation Bar -->
+    <!-- Navigation Bar -->
+    <nav id="navbar"
+        class="fixed mx-auto  px-4 sm:px-6 space-between lg:px-8 top-0 left-0 right-0 z-20 transition-transform duration-300 transform -translate-y-full bg-green-600 text-white shadow-lg">
+        <div class="container mx-auto flex justify-between items-center p-8">
+            <!-- Logo -->
+            <div class="text-lg font-bold space-x-1.5 flex items-center"> <img src="assets/El-Hanan trans.png"
+                    alt="Elhanan Company Limited Logo" class="w-10 h-10 mr-0" />
+                <!-- Adjust width and height as needed -->
+                Elhanan Company Limited</div>
+            <div class="hidden md:flex space-x-4">
+                <a href="#" class="hover:text-green-300">Home</a>
+                <a href="#" class="hover:text-green-300">About</a>
+                <a href="#" class="hover:text-green-300">Services</a>
+                <a href="#" class="hover:text-green-300">Contact</a>
+            </div>
+            <div class="relative hidden md:flex">
+                <input type="text" placeholder="Search..."
+                    class="p-2 rounded border border-gray-300 focus:outline-none focus:border-green-500">
+                <button
+                    class="absolute right-0 top-0 mt-1 mr-1 bg-green-700 text-white px-3 py-1 rounded hover:bg-green-800">
+                    Search
+                </button>
+            </div>
+            <button id="menu-toggle" class="md:hidden text-white focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7">
+                    </path>
+                </svg>
+            </button>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden">
+            <a href="index.html" class="block py-2 px-4 text-white">Home</a>
+            <a href="#" class="block py-2 px-4 text-white">About</a>
+            <a href="#" class="block py-2 px-4 text-white">Services</a>
+            <a href="#" class="block py-2 px-4 text-white">Contact</a>
+        </div>
+    </nav>
+
+
+    <!-- Overlay -->
+    <div class="absolute inset-0 bg-black opacity-30 z-10"></div>
+
+
+
+    <!-- Hero Section -->
+    <!-- Hero Section -->
+    <!-- Hero Section -->
+    <section class="relative flex items-center justify-center h-screen overflow-hidden mx-auto px-4 sm:px-6 lg:px-8 bg-gray-200">
+        <div id="slideshow" class="absolute top-0 left-0 w-full h-full overflow-hidden">
+            <img src="assets/rows-agricultural-crops-field.jpg" alt="Slide 1"
+                class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-100">
+            <img src="assets/side-view-women-taking-care-plants.jpg" alt="Slide 2"
+                class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
+            <img src="assets/pexels-flambo-388007-1112080.jpg" alt="Slide 3"
+                class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0">
+        </div>
+
+        <!-- Overlay -->
+        <div class="absolute inset-0 bg-black opacity-50 z-10"></div>
+
+        <div class="relative z-20 text-center flex flex-col items-center">
+            <div class="text-6xl font-bold text-white mb-4 drop-shadow-lg">
+                <div id="welcome-text" class="flex justify-center"></div>
+            </div>
+            <p class="text-xl text-white mb-8 drop-shadow-md">Your Trusted Partner in Quality Products</p>
+            <div class="flex justify-center items-center">
+                <a href="under_dev.html"
+                    class="bg-green-600 text-white py-3 px-6 rounded-full hover:bg-green-700 transition duration-300 shadow-lg hover:shadow-xl mx-2">Discover
+                    More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-------GAP Section-->
+    <!-------GAP Section-->
+    <!-------GAP Section-->
+
+    <section class="bg-gray-50 mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <!-- Company Information Section -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="space-y-6">
+                    <!--  vid 1 -->
+                    <video src="assets/5118718_Man_Woman_3840x2160.mp4" alt="Pigs"
+                        class="w-full h-80 object-cover rounded-lg shadow" autoplay loop muted>
+                        Your browser does not support the video tag.
+                    </video>
+                    <!-- vid 2-->
+                    <video src="assets/7976_Food_Street Food_1280x720.mp4" alt="Chickens"
+                        class="w-full h-80 object-cover rounded-lg shadow" autoplay loop muted>
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+
+                <div>
+                    <h2 class="text-4xl font-extrabold text-gray-800">Suppliers / Distributors of Fertilizers,
+                        AgroChemicals, Seeds and General Agro Inputs</h2>
+                    <p class="mt-4 text-lg text-gray-600">
+                        At Elhanan Company Limited, we are proud to be a leading supplier and distributor of a wide
+                        range of agricultural products, including fertilizers,
+                        agrochemicals, seeds, and general agro inputs. Our extensive network ensures that farmers and
+                        agricultural businesses have access to the essential
+                        tools they need for optimal crop production.
+                    </p>
+
+                    <!-- Product categories -->
+                    <div class="mt-8 space-y-4">
+                        <!-- Agro based products -->
+                        <div class="bg-white shadow-lg rounded-lg p-6 flex items-center space-x-4">
+                            <div class="p-3 bg-green-100 rounded-full">
+                                <svg class="h-8 w-8 text-green-600" fill="none" xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M8 7V3m8 4V3m-4 16a4 4 0 004-4H8a4 4 0 004 4zM16 17a4 4 0 01-4-4 4 4 0 014-4h0a4 4 0 014 4 4 4 0 01-4 4z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-700">Agro-based products</h3>
+                                <p class="text-gray-600">we specialize in a diverse range of agro-based products, with a
+                                    particular focus on high-quality seeds. </p>
+                            </div>
+                        </div>
+
+                        <!-- Plant based products -->
+                        <div class="bg-white shadow-lg rounded-lg p-6 flex items-center space-x-4">
+                            <div class="p-3 bg-green-100 rounded-full">
+                                <svg class="h-8 w-8 text-green-600" fill="none" xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M8 7V3m8 4V3m-4 16a4 4 0 004-4H8a4 4 0 004 4zM16 17a4 4 0 01-4-4 4 4 0 014-4h0a4 4 0 014 4 4 4 0 01-4 4z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-700">AgroChemical-based products</h3>
+                                <p class="text-gray-600">, we offer a comprehensive range of agrochemical-based
+                                    products, specializing in high-quality fertilizers
+                                    designed to enhance agricultural productivity</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Products button -->
+                    <div class="mt-8">
+                        <a href="under_dev.html"
+                            class="inline-block bg-green-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-green-700">
+                            Products
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- About Us Section -->
+<section class="bg-gray-100 flex flex-col lg:flex-row items-center px-1 sm:px-2 lg:px-6 justify-center min-h-screen p-12 space-y-6 lg:space-y-0">
+    <div class="text-center mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Title Section -->
+        <h1 class="text-xl text-yellow-600 font-semibold mb-4">Why You Choose Us.</h1>
+        <h2 class="text-3xl sm:text-4xl font-bold text-gray-700 mb-8">Reasons Our Clients Trust Us</h2>
+
+        <!-- Features Section -->
+        <div class="flex flex-col lg:flex-row lg:space-x-12 items-center">
+            <div>
+                <div class="mb-12 flex flex-col sm:flex-row items-center sm:items-start space-x-4">
+                    <img src="assets/pngtree-hard-working-professional-image_1288192-removebg-preview.png" class="w-16 h-16 sm:w-24 sm:h-24" alt="Professionalism Image">
+                    <div>
+                        <h3 class="text-xl sm:text-2xl font-semibold">Professionalism</h3>
+                        <p class="text-gray-500">We offer the highest quality of services to our clients and produce quality products.</p>
+                    </div>
+                </div>
+
+                <div class="mb-4 flex flex-col sm:flex-row items-center sm:items-start space-x-4">
+                    <img src="assets/png-transparent-green-grass-plants-seed-horticulture-companion-planting-indoor-growing-canada-leaf-tree-planting-thumbnail-removebg-preview.png" class="w-16 h-16 sm:w-24 sm:h-24" alt="Quality AgroProducts Image">
+                    <div>
+                        <h3 class="text-xl sm:text-2xl font-semibold">Quality AgroProducts</h3>
+                        <p class="text-gray-500">Upon request, we produce foods from our products for the ready market.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slideshow Section -->
+            <div class="w-48 h-48 sm:w-64 sm:h-64 relative slideshow mb-72 m:mb-12 lg:mb-64">
+                <img src="assets/seedm.png" class="active w-full h-full object-cover" alt="Image 1">
+                <img src="assets/agrochem.png" class="w-full h-full object-cover" alt="Image 2">
+                <img src="assets/customer.png" class="w-full h-full object-cover" alt="Image 3">
+            </div>
+
+            <div class="mt-8 lg:mt-16"> <!-- Added margin here -->
+                <div class="mb-12 flex flex-col sm:flex-row items-center sm:items-start space-x-4">
+                    <img src="pngtree-pesticide-label-picture-png-image_4398913-removebg-preview.png" class="w-16 h-16 sm:w-24 sm:h-24" alt="Authentic AgroChemicals Image">
+                    <div>
+                        <h3 class="text-xl sm:text-2xl font-semibold">Authentic AgroChemicals</h3>
+                        <p class="text-gray-500">We produce quality farm chemical products for the open market.</p>
+                    </div>
+                </div>
+
+                <div class="mb-4 flex flex-col sm:flex-row items-center sm:items-start space-x-4">
+                    <img src="assets/692-6927359_earn-money-clipart-png-transparent-png-png-download-removebg-preview.png" class="w-16 h-16 sm:w-24 sm:h-24" alt="Affordability Image">
+                    <div>
+                        <h3 class="text-xl sm:text-2xl font-semibold">Affordability</h3>
+                        <p class="text-gray-500">We offer affordable products for both retailing and wholesale for the open market.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    <!-- Contact Us Section -->
+ <!-- Contact Section -->
+<section class="flex flex-col md:flex-row justify-between p-10 bg-gray-200 border-t-4 border-green-500">
+    <!-- Contact Information -->
+    <div class="flex-1 p-5">
+        <h2 class="bg-green-500 text-white inline-block px-4 py-2 rounded mb-5">
+            CONTACT INFORMATION
+        </h2>
+        <p class="mb-5 text-lg leading-relaxed">
+            Ready to speak with a AgroChemical expert? Fill out the form below, and we’ll get back to you as soon as possible.
+        </p>
+        <form action="send_email.php" method="POST" class="bg-white p-5 rounded shadow">
+            <label for="name" class="block mb-2 text-green-500">Name*</label>
+            <input type="text" id="name" name="name" placeholder="Eg: Charles Koomson" class="w-full p-2 border border-gray-300 rounded mb-4" required>
+            <label for="email" class="block mb-2 text-green-500">Email*</label>
+            <input type="email" id="email" name="email" placeholder="Name@Example.Com" class="w-full p-2 border border-gray-300 rounded mb-4" required>
+            <label for="phone" class="block mb-2 text-green-500">Phone Number*</label>
+            <input type="tel" id="phone" name="phone" placeholder="+233 20 231 6454" class="w-full p-2 border border-gray-300 rounded mb-4" required>
+            <button type="submit" class="bg-green-500 text-white p-2 rounded w-full font-bold">
+                LET’S GET TO WORK
+            </button>
+        </form>
+    </div>
+    <!-- Offerings -->
+    <div class="flex-1 p-5">
+        <h2 class="bg-green-500 text-white inline-block px-4 py-2 rounded mb-5">
+            WHAT WE'RE OFFERING
+        </h2>
+        <div class="flex flex-wrap -mx-2 mt-12">
+            <div class="w-full md:w-1/3 text-center p-2">
+                <img src="assets/seedm.png" alt="Seed Icon" class="rounded-full mb-4 p-4 ">
+                <h3 class="text-green-500">Sell Organic Seeds</h3>
+                <p>We're dedicated to promoting sustainable agriculture by offering varieties of high-quality organic seeds.</p>
+            </div>
+            <div class="w-full md:w-1/3 text-center p-2">
+                <img src="assets/agrochem.png" alt="AgroChemicals Icon" class="rounded-full mb-4 p-4 ">
+                <h3 class="text-green-500">Sell Authentic AgroChemicals</h3>
+                <p>We're committed to providing authentic and reliable agrochemicals to support and promote the agricultural community.</p>
+            </div>
+            <div class="w-full md:w-1/3 text-center p-2">
+                <img src="assets/screen-6.jpg" alt="Agro Inputs Icon" class="rounded-full mb-4 p-4 ">
+                <h3 class="text-green-500">Sell General Agro Inputs</h3>
+                <p>We offer a comprehensive selection of general agro inputs to meet the diverse needs of farmers and agricultural businesses.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+    <!-- Footer -->
+    <footer style="background: linear-gradient(135deg, #015004, #006405); color: #ffffff; padding: 40px 20px;">
+        <div
+            style="max-width: 1200px; margin: auto; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center;">
+
+            <div style="flex: 1; min-width: 250px; margin: 10px;">
+                <img src="assets/El-Hanan trans.png" alt="logo" class="w-24 h-24 py-0 mb-0"
+                    style="vertical-align: middle; border-radius: 10px;">
+                <p style="margin: 10px 0; font-size: 14px;">We produce high-quality and organic farm products that meet
+                    international standards.</p>
+                <div style="margin-top: 10px;">
+                    <a href="#" style="color: #ffffff; margin-right: 15px; text-decoration: none;">Twitter</a>
+                    <a href="#" style="color: #ffffff; margin-right: 15px; text-decoration: none;">Facebook</a>
+                    <a href="#" style="color: #ffffff; margin-right: 15px; text-decoration: none;">Pinterest</a>
+                    <a href="#" style="color: #ffffff; text-decoration: none;">Vimeo</a>
+                </div>
+            </div>
+
+            <div style="flex: 1; min-width: 250px; margin: 10px;">
+                <h3 style="margin: 0; color: #FFD56B;">Top Links</h3>
+                <ul style="list-style: none; padding: 0; margin: 0;">
+                    <li><a href="#" style="color: #ffffff; text-decoration: none;">Home</a></li>
+                    <li><a href="#" style="color: #ffffff; text-decoration: none;">About Us</a></li>
+                    <li><a href="#" style="color: #ffffff; text-decoration: none;">Services</a></li>
+                    <li><a href="#" style="color: #ffffff; text-decoration: none;">Contact Us</a></li>
+                    <li><a href="#" style="color: #ffffff; text-decoration: none;">Jobs</a></li>
+                </ul>
+            </div>
+
+            <div style="flex: 1; min-width: 250px; margin: 10px;">
+                <h3 style="margin: 0; color: #FFD56B;">Contact Us</h3>
+                <p style="margin: 5px 0; font-size: 14px;">P.O.BOX WJ 613 Accra, Plot A9G near Weija DVLA. SCC-Accra,
+                    Ghana</p>
+                <p style="margin: 5px 0; font-size: 14px;">Email: <a href="mailto:elhananagro@gmail.com"
+                        style="color: #FFD56B; text-decoration: none;">info@elhanancl.com</a></p>
+                <p style="margin: 5px 0; font-size: 14px;">Call: <a href="tel:+2330248770820"
+                        style="color: #FFD56B; text-decoration: none;">(+233) 244 564 378 / (+233) 205 777 970</a></p>
+            </div>
+
+            <div style="flex: 1; min-width: 250px; margin: 10px;">
+                <h3 style="margin: 0; color: #FFD56B;">Newsletter</h3>
+                <input type="email" placeholder="Your Email Address"
+                    style="padding: 10px; border: none; border-radius: 5px; margin-right: 5px; width: calc(70% - 10px);">
+                <button
+                    style="background-color: #FFD56B; color: #2F3E46; padding: 10px; border: none; border-radius: 5px;">Subscribe</button>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 30px;">
+            <p style="margin: 0;">Copyright © 2024 Elhanan Company Limited. Developed by <a href="#"
+                    style="color: #FFD56B; text-decoration: none;">Kayrico Graphics</a></p>
+        </div>
+    </footer>
+
+
+
+    <script>
+        // Toggle mobile menu
+        document.getElementById('menu-toggle').addEventListener('click', function () {
+            var menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Slideshow functionality
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('#slideshow img');
+        const totalSlides = slides.length;
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                if (i === index) {
+                    slide.classList.remove('opacity-0');
+                    slide.classList.add('opacity-100');
+                } else {
+                    slide.classList.remove('opacity-100');
+                    slide.classList.add('opacity-0');
+                }
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            showSlide(currentSlide);
+        }
+
+        // Change slide every 5 seconds without pause
+        setInterval(nextSlide, 5000);
+        showSlide(currentSlide); // Initial display
+
+
+        // Welcome text animation
+        const welcomeText = document.getElementById('welcome-text');
+        const words = ["Welcome To Elhanan Company Limited", "We are dedicated", "We are innovative", "We are passionate"];
+        let index = 0;
+
+        function showWelcomeText() {
+            welcomeText.innerHTML = `<span>${words[index]}</span>`;
+            welcomeText.firstElementChild.classList.add('slide-in');
+            index = (index + 1) % words.length;
+        }
+
+        setInterval(showWelcomeText, 3000); // Change text every 3 seconds
+        showWelcomeText(); // Initial call
+
+        let lastScrollTop = 0; // Keep track of the last scroll position
+        const navbar = document.getElementById('navbar');
+
+        // Set initial class for the navbar
+        navbar.classList.add('show');
+
+        // Show navbar on scroll up and hide on scroll down
+        window.addEventListener('scroll', function () {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+            if (scrollTop > lastScrollTop) {
+                // Scrolling down
+                navbar.classList.remove('show'); // Hide the navbar
+            } else {
+                // Scrolling up
+                navbar.classList.add('show'); // Show the navbar
+            }
+
+            // Change navbar background color based on scroll position
+            if (scrollTop > 50) { // Adjust this value based on your preference
+                navbar.classList.remove('navbar-green');
+                navbar.classList.add('navbar-white');
+            } else {
+                navbar.classList.remove('navbar-white');
+                navbar.classList.add('navbar-green');
+            }
+
+            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
+        });
+        // Slideshow JavaScript
+        const images = document.querySelectorAll('.slideshow img');
+        let current = 0;
+
+        function slideshow() {
+            images[current].classList.remove('active');
+            current = (current + 1) % images.length;
+            images[current].classList.add('active');
+        }
+
+        setInterval(slideshow, 3000); // Change image every 3 seconds
+
+    </script>
+
+</body>
+
+
+</html>

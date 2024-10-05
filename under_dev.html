@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Under Construction</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        @keyframes blink {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.3;
+            }
+        }
+
+        .bounce {
+            animation: bounce 1s infinite;
+        }
+
+        .blink {
+            animation: blink 1s infinite;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <div class="text-center">
+        <!-- Hammer Icon -->
+        <div class="flex justify-center text-4xl w-15 h-10 mb-4">
+            <img src="hammer-and-pick-emoji-2048x1910-tq6mm6lc.png" alt="Hammer" class="bounce">
+        </div>
+
+        <!-- Under Construction Text -->
+        <h1 class="text-3xl font-bold text-green-600 blink">
+            Under Construction!
+        </h1>
+    </div>
+</body>
+
+</html>
