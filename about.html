@@ -139,6 +139,49 @@
     </style>
 </head>
 <body class="bg-green-900 text-white">
+
+        <!-- Navigation Bar -->
+    <nav id="navbar"
+        class="fixed mx-auto  px-4 sm:px-6 space-between lg:px-8 top-0 left-0 right-0 z-20 transition-transform duration-300 transform -translate-y-full bg-green-600 text-white shadow-lg">
+        <div class="container mx-auto flex justify-between items-center p-8">
+            <!-- Logo -->
+            <div class="text-lg font-bold space-x-1.5 flex items-center"> <img src="assets/El-Hanan trans.png"
+                    alt="Elhanan Company Limited Logo" class="w-10 h-10 mr-0" />
+                <!-- Adjust width and height as needed -->
+                Elhanan Company Limited</div>
+            <div class="hidden md:flex space-x-4">
+                <a href="#" class="hover:text-green-300">Home</a>
+                <a href="about.html" class="hover:text-green-300">About</a>
+                <a href="#" class="hover:text-green-300">Services</a>
+                <a href="#" class="hover:text-green-300">Contact</a>
+            </div>
+            <div class="relative hidden md:flex">
+                <input type="text" placeholder="Search..."
+                    class="p-2 rounded border border-gray-300 focus:outline-none focus:border-green-500">
+                <button
+                    class="absolute right-0 top-0 mt-1 mr-1 bg-green-700 text-white px-3 py-1 rounded hover:bg-green-800">
+                    Search
+                </button>
+            </div>
+            <button id="menu-toggle" class="md:hidden text-white focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7">
+                    </path>
+                </svg>
+            </button>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden">
+            <a href="index.html" class="block py-2 px-4 text-white">Home</a>
+            <a href="#" class="block py-2 px-4 text-white">About</a>
+            <a href="#" class="block py-2 px-4 text-white">Services</a>
+            <a href="#" class="block py-2 px-4 text-white">Contact</a>
+        </div>
+    </nav>
+
+
+    <!-- Overlay -->
+    <div class="absolute inset-0 bg-black opacity-30 z-10"></div>
      <!-- Navigation Bar -->
     <header class="relative h-screen bg-cover bg-center" style="background-image: url('assets/bg.jpg');"> 
         <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center"> 
