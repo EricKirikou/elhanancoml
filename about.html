@@ -223,20 +223,25 @@
     </div>
 </div>
   <!---Video section----->
-   <section class="relative h-screen bg-fixed bg-cover bg-center"
+<section class="relative h-screen bg-fixed bg-cover bg-center"
     style="background-image: url('assets/detail-rice-plant-sunset-valencia-with-plantation-out-focus-rice-grains-plant-seed.jpg');">
     <div class="absolute inset-0 bg-black opacity-50"></div>
     <div class="relative z-10 flex flex-col items-center justify-center h-full text-white">
         <h1 class="text-4xl font-bold mb-4">Elhanan Video Tour</h1>
-        <div class="relative w-full max-w-4xl"> <img src=assets/detail-rice-plant-sunset-valencia-with-plantation-out-focus-rice-grains-plant-seed.jpg" alt="Farm" class="w-full h-auto"> 
-            <video src="assets/6695_Field_Tobacco_1280x720.mp4" muted paused
-                class="absolute inset-0 flex items-center justify-center border-8 rounded-lg"> Your browser does not support the video tag. </video><svg class="w-16 h-16 text-red-600"
-                    fill="currentColor" viewBox="0 0 24 24">
+        <div class="relative w-full max-w-4xl">
+            <video id="tutorialVideo" class="w-full h-auto" poster="/path-to-your-image.png">
+                <source src="path-to-your-video.mp4" type="video/mp4"> Your browser does not support the video tag.
+            </video>
+            <button id="playButton"
+                class="absolute inset-0 flex items-center justify-center w-full h-full bg-transparent">
+                <svg class="w-16 h-16 text-red-600" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M10 15l5-3-5-3z"></path>
                     <path
                         d="M21.8 8S22 7.2 21.8 6.4c-.2-.8-.8-1.4-1.6-1.6C18.8 4.4 12 4.4 12 4.4s-6.8 0-8.2.4c-.8.2-1.4.8-1.6 1.6C2 7.2 2 8 2 8s0 2 .2 3.6c.2.8.8 1.4 1.6 1.6C5.2 14 12 14 12 14s6.8 0 8.2-.4c.8-.2 1.4-.8 1.6-1.6C22 10 22 8 22 8s0-.8-.2-1.6zM10 14V9.6l4.6 2.2L10 14z">
                     </path>
-                </svg> </a> </div>
+                </svg>
+            </button>
+        </div>
     </div>
 </section>
 <section class="p-8">
