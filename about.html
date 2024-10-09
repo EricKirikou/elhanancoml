@@ -1,311 +1,43 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="icon" type="image/png" href="assets/El-Hanan trans.png">
-    <title>Elhanan || About Page</title>
-    <style>
-        .slide-in {
-            display: inline-block;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: slide-in 0.5s forwards;
-        }
-
-        @keyframes slide-in {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        nav {
-            transform: translateY(-100%);
-            /* Start hidden above the viewport */
-        }
-
-        nav.show {
-            transform: translateY(0);
-            /* Show navbar */
-        }
-
-        .navbar-green {
-            background-color: #38a169;
-            /* Green color */
-            transition: background-color 0.3s;
-            /* Transition effect for background color */
-        }
-
-        .navbar-white {
-            background-color: white;
-            /* White color */
-            transition: background-color 0.3s;
-            /* Transition effect for background color */
-        }
-
-        #welcome-text span {
-            margin-right: 0.4rem;
-            color: #ffffff;
-        }
-
-        .about-icon {
-            width: 50px;
-            height: 50px;
-        }
-
-        .about-item {
-            text-align: center;
-            margin-top: 2rem;
-        }
-
-        .about-item h3 {
-            font-size: 1.5rem;
-            font-weight: bold;
-            margin-top: 1rem;
-            color: #006400;
-        }
-
-        .about-item p {
-            color: #4A5568;
-        }
-
-        /* Overlay styles */
-        .overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            /* Black with 50% opacity */
-            z-index: 1;
-            /* Place it above the images but below the text */
-        }
-
-        #slideshow img {
-            transition: opacity 1s ease-in-out;
-            /* Smooth transition for opacity */
-        }
-
-        .opacity-0 {
-            opacity: 0;
-        }
-
-        .opacity-100 {
-            opacity: 1;
-        }
-
-        input[type="text"],
-        input[type="email"],
-        input[type="tel"] {
-            color: black;
-            /* Change the text color to black */
-        }
-
-        .navbar-white a {
-            color: #38a169;
-            /* Change the link text color to green */
-        }
-
-        .navbar-white h1,
-        .navbar-white h2,
-        .navbar-white p {
-            color: #38a169;
-            /* Change the color of other text elements as needed */
-        }
-
-        .slideshow {
-            position: relative;
-            width: 100%;
-            height: 100%;
-        }
-
-        .slideshow img {
-            position: absolute;
-            width: 100%;
-            height: auto;
-            opacity: 0;
-            transition: opacity 1s ease-in-out;
-        }
-
-        .slideshow img.active {
-            opacity: 1;
-        }
-    </style>
-
-    </style>
-</head>
-<body class="bg-green-900 text-white">
-
-        <!-- Navigation Bar -->
-    <nav id="navbar"
-        class="fixed mx-auto  px-4 sm:px-6 space-between lg:px-8 top-0 left-0 right-0 z-20 transition-transform duration-300 transform -translate-y-full bg-green-600 text-white shadow-lg">
-        <div class="container mx-auto flex justify-between items-center p-8">
-            <!-- Logo -->
-            <div class="text-lg font-bold space-x-1.5 flex items-center"> <img src="assets/El-Hanan trans.png"
-                    alt="Elhanan Company Limited Logo" class="w-10 h-10 mr-0" />
-                <!-- Adjust width and height as needed -->
-                Elhanan Company Limited</div>
-            <div class="hidden md:flex space-x-4">
-                <a href="#" class="hover:text-green-300">Home</a>
-                <a href="about.html" class="hover:text-green-300">About</a>
-                <a href="#" class="hover:text-green-300">Services</a>
-                <a href="#" class="hover:text-green-300">Contact</a>
-            </div>
-            <div class="relative hidden md:flex">
-                <input type="text" placeholder="Search..."
-                    class="p-2 rounded border border-gray-300 focus:outline-none focus:border-green-500">
-                <button
-                    class="absolute right-0 top-0 mt-1 mr-1 bg-green-700 text-white px-3 py-1 rounded hover:bg-green-800">
-                    Search
-                </button>
-            </div>
-            <button id="menu-toggle" class="md:hidden text-white focus:outline-none">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7">
-                    </path>
-                </svg>
-            </button>
-        </div>
-        <div id="mobile-menu" class="hidden md:hidden">
-            <a href="index.html" class="block py-2 px-4 text-white">Home</a>
-            <a href="#" class="block py-2 px-4 text-white">About</a>
-            <a href="#" class="block py-2 px-4 text-white">Services</a>
-            <a href="#" class="block py-2 px-4 text-white">Contact</a>
-        </div>
-    </nav>
-
-
-    <!-- Overlay -->
-    <div class="absolute inset-0 bg-black opacity-30 z-10"></div>
-     <!-- Navigation Bar -->
-    <header class="relative h-screen bg-cover bg-center" style="background-image: url('assets/bg.jpg');"> 
-        <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center"> 
-            <div class="text-center text-white"> 
-                <h1 class="text-5xl font-bold mb-4">Welcome</h1> 
-                <h2 class="text-4xl font-bold mb-4">Make Farm Record Keeping Easier And More Efficient With EasyFarm</h2> 
-                <p class="text-xl">Revolutionizing Farm and Ranch Management – Effortlessly Streamline Book Work and Reclaim Precious Time</p> 
+<!DOCTYPE html> <html lang="en"> 
+    <head> 
+        <meta charset="UTF-8"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <title>EasyFarm</title> 
+        <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"> 
+        <style> 
+            .bg-hero { background-image: url('path-to-your-image.jpg'); 
+                      background-size: cover; 
+                      background-position: center; 
+                     } 
+            .bg-overlay { background: rgba(0, 0, 0, 0.5); 
+                        } 
+            .watermark { background-image: url('path-to-your-watermark.png'); 
+                        background-repeat: no-repeat; 
+                        background-position: bottom right; 
+                        opacity: 0.1; 
+                       } 
+        </style> 
+    </head> 
+    <body class="bg-gray-100"> 
+        <header class="relative h-screen bg-hero watermark"> 
+            <div class="absolute inset-0 bg-overlay flex items-center justify-center transition duration-500 ease-in-out hover:bg-opacity-75"> 
+                <div class="text-center text-white px-4"> 
+                    <h1 class="text-5xl font-extrabold mb-4 animate-pulse">Welcome</h1> 
+                    <h2 class="text-4xl font-bold mb-4">Make Farm Record Keeping Easier And More Efficient With EasyFarm</h2> 
+                    <p class="text-xl mb-8">Revolutionizing Farm and Ranch Management – Effortlessly Streamline Book Work and Reclaim Precious Time</p> 
+                    <button class="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-full shadow-lg transform hover:scale-105 transition duration-300">Learn More</button> 
+                </div> 
             </div> 
-        </div> 
-    </header>
-
-    <!-- Hero Section -->
-
-    <!-- About Section -->
-    <section id="about" class="min-h-screen flex flex-col items-center justify-center bg-green-800 p-6 slide-up">
-        <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-4xl md:text-5xl font-bold mb-6">About Us</h2>
-            <p class="text-lg md:text-xl mb-6">We believe in empowering our customers with the tools they need to cultivate thriving crops and successful ventures. With a commitment to excellence, we source only the finest products from trusted manufacturers, ensuring that every item meets our rigorous standards.</p>
-            <div class="flex flex-wrap justify-center mt-12">
-                <div class="w-full md:w-1/3 p-4">
-                    <div class="bg-gray-700 p-6 rounded-lg hover:bg-gray-600 transition duration-300">
-                        <h3 class="text-2xl font-bold mb-4">Our Mission</h3>
-                        <p>Empowering growth, one seed at a time—nurturing sustainable agriculture for a thriving tomorrow.</p>
-                    </div>
-                </div>
-               <div class="w-full md:w-1/3 p-4">
-                    <div class="bg-gray-700 p-6 rounded-lg hover:bg-gray-600 transition duration-300">
-                        <h3 class="text-2xl font-bold mb-4">Our Vision</h3>
-                        <p>To be the leading force in agricultural innovation, driving sustainability and excellence in every farm and garden we touch.</p>
-                    </div>
-                </div>
-                <div class="w-full md:w-1/3 p-4">
-                    <div class="bg-gray-700 p-6 rounded-lg hover:bg-gray-600 transition duration-300">
-                        <h3 class="text-2xl font-bold mb-4">Our Values</h3>
-                        <p>Growing Successfully Together with our clients</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Team Section -->
-    <section class="min-h-screen flex items-center justify-center bg-yellow-300 p-6">
-        <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-4xl md:text-5xl font-bold mb-6">Meet the Team</h2>
-            <div class="flex flex-wrap justify-center">
-                <div class="w-full md:w-1/2 lg:w-1/3 p-4">
-                    <div class="bg-gray-800 p-6 rounded-lg hover:bg-gray-700 transition duration-300">
-                        <img src="https://via.placeholder.com/150" alt="Team Member" class="w-32 h-32 rounded-full mx-auto mb-4">
-                        <h3 class="text-2xl font-bold mb-2">John Doe</h3>
-                        <p class="text-lg">CEO</p>
-                    </div>
-                </div>
-                <div class="w-full md:w-1/2 lg:w-1/3 p-4">
-                    <div class="bg-gray-800 p-6 rounded-lg hover:bg-gray-700 transition duration-300">
-                        <img src="https://via.placeholder.com/150" alt="Team Member" class="w-32 h-32 rounded-full mx-auto mb-4">
-                        <h3 class="text-2xl font-bold mb-2">Jane Smith</h3>
-                        <p class="text-lg">CTO</p>
-                    </div>
-                </div>
-                  <div class="w-full md:w-1/2 lg:w-1/3 p-4">
-                    <div class="bg-gray-800 p-6 rounded-lg hover:bg-gray-700 transition duration-300">
-                        <img src="https://via.placeholder.com/150" alt="Team Member" class="w-32 h-32 rounded-full mx-auto mb-4">
-                        <h3 class="text-2xl font-bold mb-2">Jane Smith</h3>
-                        <p class="text-lg">CTO</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-      <footer style="background: linear-gradient(135deg, #015004, #006405); color: #ffffff; padding: 40px 20px;">
-        <div
-            style="max-width: 1200px; margin: auto; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center;">
-
-            <div style="flex: 1; min-width: 250px; margin: 10px;">
-                <img src="assets/El-Hanan trans.png" alt="logo" class="w-24 h-24 py-0 mb-0"
-                    style="vertical-align: middle; border-radius: 10px;">
-                <p style="margin: 10px 0; font-size: 14px;">We produce high-quality and organic farm products that meet
-                    international standards.</p>
-                <div style="margin-top: 10px;">
-                    <a href="#" style="color: #ffffff; margin-right: 15px; text-decoration: none;">Twitter</a>
-                    <a href="#" style="color: #ffffff; margin-right: 15px; text-decoration: none;">Facebook</a>
-                    <a href="#" style="color: #ffffff; margin-right: 15px; text-decoration: none;">Pinterest</a>
-                    <a href="#" style="color: #ffffff; text-decoration: none;">Vimeo</a>
-                </div>
-            </div>
-
-            <div style="flex: 1; min-width: 250px; margin: 10px;">
-                <h3 style="margin: 0; color: #FFD56B;">Top Links</h3>
-                <ul style="list-style: none; padding: 0; margin: 0;">
-                    <li><a href="#" style="color: #ffffff; text-decoration: none;">Home</a></li>
-                    <li><a href="#" style="color: #ffffff; text-decoration: none;">About Us</a></li>
-                    <li><a href="#" style="color: #ffffff; text-decoration: none;">Services</a></li>
-                    <li><a href="#" style="color: #ffffff; text-decoration: none;">Contact Us</a></li>
-                    <li><a href="#" style="color: #ffffff; text-decoration: none;">Jobs</a></li>
-                </ul>
-            </div>
-
-            <div style="flex: 1; min-width: 250px; margin: 10px;">
-                <h3 style="margin: 0; color: #FFD56B;">Contact Us</h3>
-                <p style="margin: 5px 0; font-size: 14px;">P.O.BOX WJ 613 Accra, Plot A9G near Weija DVLA. SCC-Accra,
-                    Ghana</p>
-                <p style="margin: 5px 0; font-size: 14px;">Email: <a href="mailto:elhananagro@gmail.com"
-                        style="color: #FFD56B; text-decoration: none;">info@elhanancl.com</a></p>
-                <p style="margin: 5px 0; font-size: 14px;">Call: <a href="tel:+2330248770820"
-                        style="color: #FFD56B; text-decoration: none;">(+233) 244 564 378 / (+233) 205 777 970</a></p>
-            </div>
-
-            <div style="flex: 1; min-width: 250px; margin: 10px;">
-                <h3 style="margin: 0; color: #FFD56B;">Newsletter</h3>
-                <input type="email" placeholder="Your Email Address"
-                    style="padding: 10px; border: none; border-radius: 5px; margin-right: 5px; width: calc(70% - 10px);">
-                <button
-                    style="background-color: #FFD56B; color: #2F3E46; padding: 10px; border: none; border-radius: 5px;">Subscribe</button>
-            </div>
-        </div>
-
-        <div style="text-align: center; margin-top: 30px;">
-            <p style="margin: 0;">Copyright © 2024 Elhanan Company Limited. Developed by <a href="#"
-                    style="color: #FFD56B; text-decoration: none;">Kayrico Graphics</a></p>
-        </div>
-    </footer>
-
-</body>
+        </header> 
+        <footer class="bg-green-800 text-white py-6"> 
+            <div class="container mx-auto flex flex-col md:flex-row justify-between items-center px-6"> 
+                <div class="text-lg mb-4 md:mb-0">Contact Us</div> 
+                <div class="text-lg mb-4 md:mb-0">Customer Support</div> 
+                <div class="text-lg flex items-center"> 
+                    <span class="mr-2">Call To Ask Any Question</span> 
+                    <span class="bg-orange-600 py-2 px-4 rounded-full shadow-md transition duration-300 transform hover:scale-105">(800)-396-3279</span> 
+                </div> 
+            </div> 
+        </footer> 
+    </body> 
 </html>
