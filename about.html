@@ -509,6 +509,11 @@
             tutorialVideo.play();
             this.style.display = 'none'; // Hide the button after click
         });
+
+         tutorialVideo.addEventListener('ended', function() {
+            tutorialVideo.currentTime = 0; // Reset to the beginning
+            playButton.style.display = 'block'; // Show the button again
+        });
     </script>
 
 
