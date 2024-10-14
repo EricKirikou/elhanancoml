@@ -135,6 +135,23 @@
         .slideshow img.active {
             opacity: 1;
         }
+        .container {
+            position: relative; /* Position relative to contain the absolutely positioned elements */
+            width: 600px; /* Set a width for the container */
+            height: 400px; /* Set a height for the container */
+            background-color: #f0f0f0; /* Background color for visibility */
+        }
+        .play-button {
+            position: absolute; /* Position absolutely within the container */
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: transparent; /* Transparent background */
+            cursor: pointer;
     </style>
 </head>
 
@@ -232,30 +249,20 @@
             <video id="tutorialVideo" class="w-full h-full" poster="">
                 <source src="assets/6695_Field_Tobacco_1280x720.mp4" type="video/mp4"> Your browser does not support the video tag.
             </video>
-            <button id="playButton"
-                class="absolute inset-0 flex items-center justify-center w-full h-full bg-transparent onclick">
-                <svg class="play-button w-16 h-16 text-red-600" fill="currentColor" viewBox="0 0 24 24" id="playButton">
-        <circle cx="12" cy="12" r="10" fill="currentColor" opacity="0.2" />
-        <polygon points="9,7 9,17 17,12" fill="currentColor" />
-    </svg>
-                    <path d="M10 15l5-3-5-3z"></path>
-                    <path
-                        d="M21.8 8S22 7.2 21.8 6.4c-.2-.8-.8-1.4-1.6-1.6C18.8 4.4 12 4.4 12 4.4s-6.8 0-8.2.4c-.8.2-1.4.8-1.6 1.6C2 7.2 2 8 2 8s0 2 .2 3.6c.2.8.8 1.4 1.6 1.6C5.2 14 12 14 12 14s6.8 0 8.2-.4c.8-.2 1.4-.8 1.6-1.6C22 10 22 8 22 8s0-.8-.2-1.6zM10 14V9.6l4.6 2.2L10 14z">
-                    </path>
-                </svg>
-            </button>
-            <button id="playButton"
-                class="absolute inset-0 flex items-center justify-center w-full h-full bg-transparent onclick animate-ping">
-                <svg class="play-button w-16 h-16 text-red-600" fill="currentColor" viewBox="0 0 24 24" id="playButton">
-        <circle cx="12" cy="12" r="10" fill="currentColor" opacity="0.2" />
-        <polygon points="9,7 9,17 17,12" fill="currentColor" />
-    </svg>
-                    <path d="M10 15l5-3-5-3z"></path>
-                    <path
-                        d="M21.8 8S22 7.2 21.8 6.4c-.2-.8-.8-1.4-1.6-1.6C18.8 4.4 12 4.4 12 4.4s-6.8 0-8.2.4c-.8.2-1.4.8-1.6 1.6C2 7.2 2 8 2 8s0 2 .2 3.6c.2.8.8 1.4 1.6 1.6C5.2 14 12 14 12 14s6.8 0 8.2-.4c.8-.2 1.4-.8 1.6-1.6C22 10 22 8 22 8s0-.8-.2-1.6zM10 14V9.6l4.6 2.2L10 14z">
-                    </path>
-                </svg>
-            </button>
+           <div class="container">
+        <button id="playButton1" class="play-button">
+            <svg class="w-16 h-16 text-red-600" fill="currentColor" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10" fill="currentColor" opacity="0.2" />
+                <polygon points="9,7 9,17 17,12" fill="currentColor" />
+            </svg>
+        </button>
+        <button id="playButton2" class="play-button animate-ping">
+            <svg class="w-16 h-16 text-red-600" fill="currentColor" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10" fill="currentColor" opacity="0.2" />
+                <polygon points="9,7 9,17 17,12" fill="currentColor" />
+            </svg>
+        </button>
+    </div>
         </div>
     </div>
 </section>
@@ -520,6 +527,14 @@
             const tutorialVideo = document.getElementById('tutorialVideo');
             tutorialVideo.play();
             this.style.display = 'none'; // Hide the button after click
+        });
+         const playButton1 = document.getElementById('playButton1');
+        const playButton2 = document.getElementById('playButton2');
+
+        playButton1.addEventListener('click', function() {
+            // Hide the first button and show the second (optional)
+            playButton1.style.display = 'none';
+            playButton2.style.display = 'flex'; // Assuming the second button should be visible after the first one
         });
     </script>
 
