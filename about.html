@@ -233,7 +233,7 @@
                 <source src="assets/6695_Field_Tobacco_1280x720.mp4" type="video/mp4"> Your browser does not support the video tag.
             </video>
             <button id="playButton"
-                class="absolute inset-0 flex items-center justify-center w-full h-full bg-transparent">
+                class="absolute inset-0 flex items-center justify-center w-full h-full bg-transparent onclick">
                 <svg class="w-16 h-16 text-red-600" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M10 15l5-3-5-3z"></path>
                     <path
@@ -500,6 +500,10 @@
         }
 
         setInterval(slideshow, 3000); // Change image every 3 seconds
+
+         document.getElementById('playButton').onclick = function() {
+            alert('Button clicked!'); // Replace this with your action
+        };
 
     </script>
 
