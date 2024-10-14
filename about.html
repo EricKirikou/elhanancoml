@@ -508,6 +508,11 @@
             const tutorialVideo = document.getElementById('tutorialVideo');
             tutorialVideo.play();
             this.style.display = 'none'; // Hide the button after click
+
+            playButton.addEventListener('click', function() {
+            tutorialVideo.style.display = 'block'; // Show video
+            tutorialVideo.play();
+            this.style.display = 'none'; // Hide the button
             this.play(); // Play again
         });
 
