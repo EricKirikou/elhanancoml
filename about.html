@@ -501,9 +501,10 @@
 
         setInterval(slideshow, 3000); // Change image every 3 seconds
 
-         document.getElementById('playButton').onclick = function() {
-            alert('Button clicked!'); //Onclick button
-        };
+            document.getElementById('playButton').addEventListener('click', function() {
+            const video = document.getElementById('video');
+            video.play();
+        });
 
     </script>
 
