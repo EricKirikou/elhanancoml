@@ -229,12 +229,12 @@
     <div class="relative z-10 flex flex-col items-center justify-center h-full text-white">
         <h1 class="text-4xl font-bold mb-4">Elhanan Video Tour</h1>
         <div class="relative w-full max-w-4xl">
-            <video id="tutorialVideo" class="w-full h-full loop" poster="">
+            <video id="tutorialVideo" class="w-full h-full" poster="">
                 <source src="assets/6695_Field_Tobacco_1280x720.mp4" type="video/mp4"> Your browser does not support the video tag.
             </video>
             <button id="playButton"
                 class="absolute inset-0 flex items-center justify-center w-full h-full bg-transparent onclick">
-                <svg class="play-button w-16 h-16 text-red-600 animate-ping" fill="currentColor" viewBox="0 0 24 24" id="playButton">
+                <svg class="play-button w-16 h-16 text-red-600" fill="currentColor" viewBox="0 0 24 24" id="playButton">
         <circle cx="12" cy="12" r="10" fill="currentColor" opacity="0.2" />
         <polygon points="9,7 9,17 17,12" fill="currentColor" />
     </svg>
@@ -509,7 +509,6 @@
             tutorialVideo.play();
             this.style.display = 'none'; // Hide the button after click
         });
-
     </script>
 
 
