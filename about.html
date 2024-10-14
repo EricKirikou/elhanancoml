@@ -507,7 +507,7 @@
             document.getElementById('playButton').addEventListener('click', function() {
             const tutorialVideo = document.getElementById('tutorialVideo');
             tutorialVideo.play();
-            tutorialVideo.loop();
+            this.play(); // Play again
             this.style.display = 'none'; // Hide the button after click
         });
 
